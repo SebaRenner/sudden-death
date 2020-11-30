@@ -66,13 +66,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.high-definition-config": {
-      "version": "8.3.1",
+      "version": "file:../LocalPackages/com.unity.render-pipelines.high-definition-config",
       "depth": 0,
-      "source": "registry",
+      "source": "local",
       "dependencies": {
         "com.unity.render-pipelines.core": "8.2.0"
-      },
-      "url": "https://packages.unity.com"
+      }
     },
     "com.unity.searcher": {
       "version": "4.0.9",

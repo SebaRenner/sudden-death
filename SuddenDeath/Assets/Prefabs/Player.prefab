@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1820224558806302887}
   - component: {fileID: 1820224558806302886}
   - component: {fileID: 1820224558806302885}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ViewIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 1820224559076113918}
   - component: {fileID: 1820224559076113917}
   - component: {fileID: 1820224559076113916}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,9 +302,10 @@ GameObject:
   - component: {fileID: -8444330634297372390}
   - component: {fileID: -4721912041237072063}
   - component: {fileID: -5319869856736548595}
-  m_Layer: 0
+  - component: {fileID: 1066288225459630379}
+  m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -453,6 +454,28 @@ MonoBehaviour:
   lerpVelocityAmount: 0.5
   lerpPositionAmount: 0.5
   clientAuthority: 1
+--- !u!114 &1066288225459630379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820224560174582151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac541b669cfeae84f873d2eb80a54d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  weapon:
+    name: Glock
+    damage: 10
+    range: 100
+  cam: {fileID: 1820224559076113918}
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1820224560287920558
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +487,7 @@ GameObject:
   - component: {fileID: 1820224560287920559}
   - component: {fileID: 1820224560287920553}
   - component: {fileID: 1820224560287920552}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PlayerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1820224560405219972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

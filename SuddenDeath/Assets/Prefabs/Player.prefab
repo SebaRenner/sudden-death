@@ -478,7 +478,7 @@ MonoBehaviour:
   cam: {fileID: 1820224559076113918}
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1335
 --- !u!114 &1286683941133733758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +491,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d27b5711ed8ff49951e653477e7847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  maxHealth: 100
+  disableOnDeath:
+  - {fileID: 1820224560174582147}
+  - {fileID: 1066288225459630379}
 --- !u!1 &1820224560287920558
 GameObject:
   m_ObjectHideFlags: 0

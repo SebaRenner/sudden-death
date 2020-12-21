@@ -462,7 +462,7 @@ MonoBehaviour:
     name: Glock
     damage: 10
     range: 100
-    firerate: 0
+    fireRate: 0
     graphics: {fileID: 7837322780617854855, guid: 5a22eed3e8598e14f864a168102c5fad, type: 3}
 --- !u!1 &1820224560405220091
 GameObject:

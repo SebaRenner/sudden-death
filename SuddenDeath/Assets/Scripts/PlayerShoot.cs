@@ -66,6 +66,22 @@ public class PlayerShoot : NetworkBehaviour
         weaponManager.GetWeaponGraphics().muzzleFlash.Play();
     }
 
+    // is called on the server when we hit something
+    // takes the hit point and the noraml of the surface we hit
+    [Command]
+    void CmdOnHit(Vector3 _pos, Vector3 _normal)
+    {
+        RpcDoHitEffect(_pos, _normal);
+    }
+
+    // is called on all clients
+    // Here spawn the effects 
+    [ClientRpc]
+    void RpcDoHitEffect(Vector3 _pos, Vector3 _normal)
+    {
+        GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetWeaponGraphics().hitEffectPrefab, _pos, Quaternion.LookRotation(_normal));
+        Destroy(_hitEffect, 2f);
+    }
 
     [Client]
     void Shoot()
@@ -86,6 +102,8 @@ public class PlayerShoot : NetworkBehaviour
             {
                 CmdPlayerShot(_hit.collider.name, currentWeapon.damage);
             }
+
+            CmdOnHit(_hit.point, _hit.normal);
         }
     }
 

@@ -92,6 +92,18 @@ public class PlayerShoot : NetworkBehaviour
             return;
         }
 
+       
+
+        if (currentWeapon.bullets <= 0)
+        {
+            Debug.Log("Out of bullets");
+            weaponManager.Reload();
+            return;
+        }
+
+        currentWeapon.bullets--;
+        Debug.Log("Remaining bullets: " + currentWeapon.bullets);
+
         // We are shooting, call the OnShoot on the server
         CmdOnShoot();
 

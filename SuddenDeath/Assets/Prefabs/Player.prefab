@@ -459,10 +459,14 @@ MonoBehaviour:
   weaponHolder: {fileID: 4131316927399513390}
   primaryWeapon:
     name: Glock
-    damage: 10
+    damage: 5
     range: 100
-    fireRate: 0
+    fireRate: 10
+    maxBullets: 30
+    reloadTime: 1.5
+    bullets: 30
     graphics: {fileID: 7837322780617854855, guid: 5a22eed3e8598e14f864a168102c5fad, type: 3}
+  isReloading: 0
 --- !u!1 &1820224560405220091
 GameObject:
   m_ObjectHideFlags: 0

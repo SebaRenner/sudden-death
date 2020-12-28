@@ -17,7 +17,7 @@ public class WeaponManager : NetworkBehaviour
     private PlayerWeapon currentWeapon;
     private WeaponGraphics currentGraphics;
 
-    private bool isReloading = false;
+    public bool isReloading = false;
 
     void Start()
     {

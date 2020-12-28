@@ -92,8 +92,6 @@ public class PlayerShoot : NetworkBehaviour
             return;
         }
 
-       
-
         if (currentWeapon.bullets <= 0)
         {
             Debug.Log("Out of bullets");

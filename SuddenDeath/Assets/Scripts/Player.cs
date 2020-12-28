@@ -114,4 +114,9 @@ public class Player : NetworkBehaviour
 
     }
 
+    public float GetHealthPct()
+    {
+        return (float)currentHealth / maxHealth;
+    }
+
 }

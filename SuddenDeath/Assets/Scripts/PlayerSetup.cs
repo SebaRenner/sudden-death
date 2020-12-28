@@ -42,6 +42,16 @@ public class PlayerSetup : NetworkBehaviour
             playerUIInstance = Instantiate(playerUIPrefab);
             playerUIInstance.name = playerUIPrefab.name;
 
+            // Configure PlayerUI
+            PlayerUI ui = playerUIInstance.GetComponent<PlayerUI>();
+            if (ui == null)
+            {
+                Debug.Log("No playerui component on playerui prefab");
+            }
+            ui.SetPlayer(GetComponent<Player>());
+
+
+
         }
 
         GetComponent<Player>().Setup();

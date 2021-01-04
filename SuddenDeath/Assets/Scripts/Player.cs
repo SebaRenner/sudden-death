@@ -12,6 +12,9 @@ public class Player : NetworkBehaviour
         protected set { _isDead = value; }
     }
 
+    [SyncVar]
+    public string username = "Loading...";
+
     [SerializeField]
     private int maxHealth = 100;
 
@@ -28,8 +31,10 @@ public class Player : NetworkBehaviour
         wasEnabled = new bool[disableOnDeath.Length];
         for (int i = 0; i < wasEnabled.Length; i++)
         {
-            wasEnabled[i] = disableOnDeath[i].enabled;            
+            wasEnabled[i] = disableOnDeath[i].enabled;
         }
+        // TODO: Hacky solution in my eyes
+        this.username = transform.name;
         SetDefaults();
     }
 
@@ -37,16 +42,18 @@ public class Player : NetworkBehaviour
     {
         if (!isLocalPlayer) return;
 
+        /*
         if (Input.GetKeyDown(KeyCode.K))
         {
             RpcTakeDamage(100);
         }
+        */
     }
 
 
     // Annotation to send update to all clients conncected to the server
     [ClientRpc]
-    public void RpcTakeDamage(int _amount)
+    public void RpcTakeDamage(int _amount, string _sourceID)
     {
         if (isDead) return;
         currentHealth -= _amount;
@@ -54,17 +61,20 @@ public class Player : NetworkBehaviour
 
         if (currentHealth <= 0)
         {
-            Die();
+            Die(_sourceID);
         }
 
     }
 
-    private void Die()
+    private void Die(string _sourceID)
     {
         isDead = true;
 
-        //GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);
-        GameManager.instance.onPlayerKilledCallback.Invoke("Player", "Notme");
+        Player sourcePlayer = GameManager.GetPlayer(_sourceID);
+        if(sourcePlayer != null) {
+            GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);
+        }
+        //GameManager.instance.onPlayerKilledCallback.Invoke("Player", "Notme");
 
         // disabled components
         for (int i = 0; i < disableOnDeath.Length; i++)

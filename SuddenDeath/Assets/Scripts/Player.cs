@@ -63,6 +63,9 @@ public class Player : NetworkBehaviour
     {
         isDead = true;
 
+        //GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);
+        GameManager.instance.onPlayerKilledCallback.Invoke("Player", "Notme");
+
         // disabled components
         for (int i = 0; i < disableOnDeath.Length; i++)
         {

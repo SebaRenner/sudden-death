@@ -388,10 +388,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  username: Loading...
   maxHealth: 100
   disableOnDeath:
   - {fileID: 1820224560174582147}
   - {fileID: 1066288225459630379}
+  disableGameObjectsOnDeath:
+  - {fileID: 1820224560405220091}
+  - {fileID: 1820224559076113906}
+  deathEffect: {fileID: 1564231737977901193, guid: 1765b28e2c52a9e47971dd344a9bc27c, type: 3}
 --- !u!64 &2039790789
 MeshCollider:
   m_ObjectHideFlags: 0

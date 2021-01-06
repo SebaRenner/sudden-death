@@ -111,7 +111,11 @@ public class Player : NetworkBehaviour
         if (isLocalPlayer)
         {
             GameManager.instance.SetSceneCameraActive(true);
-            GetComponent<PlayerSetup>().playerUIInstance.SetActive(false);
+            // disable UI elements crosshair, healthbar and ammo
+            for (int i = 0; i <= 2; i++)
+            {
+                GetComponent<PlayerSetup>().playerUIInstance.transform.GetChild(i).gameObject.SetActive(false);
+            }
         }
 
         // Call respawn method
@@ -160,7 +164,11 @@ public class Player : NetworkBehaviour
         if (isLocalPlayer)
         {
             GameManager.instance.SetSceneCameraActive(false);
-            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
+            // Re-Activate UI elements crosshair, healthbar and ammo
+            for (int i = 0; i <= 2; i++)
+            {
+                GetComponent<PlayerSetup>().playerUIInstance.transform.GetChild(i).gameObject.SetActive(true);
+            }
         }
 
     }

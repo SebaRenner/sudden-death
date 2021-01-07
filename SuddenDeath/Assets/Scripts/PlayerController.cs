@@ -33,9 +33,8 @@ public class PlayerController : MonoBehaviour
 
         Vector3 velocity = (moveHorizontal + moveVertical) * speed;
 
-        Debug.Log(zMovement);
-        
         animator.SetFloat("ForwardVelocity", zMovement);
+        animator.SetFloat("SidestepVelocity", xMovement);
 
         motor.move(velocity);
 

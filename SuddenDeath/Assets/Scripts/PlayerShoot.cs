@@ -31,6 +31,8 @@ public class PlayerShoot : NetworkBehaviour
     {
         currentWeapon = weaponManager.GetCurrentWeapon();
 
+        if (PauseMenu.isOn) return;
+
         if (currentWeapon.bullets < currentWeapon.maxBullets)
         {
             if (Input.GetKeyDown(KeyCode.R))
@@ -119,6 +121,7 @@ public class PlayerShoot : NetworkBehaviour
         {
             if (_hit.collider.tag == PLAYER_TAG)
             {
+                Debug.Log(_hit.collider.name);
                 CmdPlayerShot(_hit.collider.name, currentWeapon.damage, transform.name);
             }
 

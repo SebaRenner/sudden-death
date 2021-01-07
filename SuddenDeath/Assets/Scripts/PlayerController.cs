@@ -16,11 +16,16 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Update()
-    {
+    {   
+       
+        if (PauseMenu.isOn) return;
+
+        /*
         if (Cursor.lockState != CursorLockMode.Locked)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+        */
 
         float xMovement = Input.GetAxisRaw("Horizontal"); // -1 and 1
         float zMovement = Input.GetAxisRaw("Vertical"); // -1 and 1

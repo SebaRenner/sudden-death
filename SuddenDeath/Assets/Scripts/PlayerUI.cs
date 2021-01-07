@@ -7,6 +7,9 @@ public class PlayerUI : MonoBehaviour
     RectTransform healthBarFill;
 
     [SerializeField]
+    GameObject pauseMenu;
+
+    [SerializeField]
     Text ammoText;
 
     private Player player;
@@ -14,12 +17,27 @@ public class PlayerUI : MonoBehaviour
     private WeaponManager weaponManager;
 
 
+    void Start()
+    {
+        PauseMenu.isOn = false;
+    }
+
     void Update()
     {
         SetHealthAmount(player.GetHealthPct());
         SetAmmoAmount(weaponManager.GetCurrentWeapon().bullets);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePauseMenu();
+        }
     }
 
+    void TogglePauseMenu()
+    {
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        PauseMenu.isOn = pauseMenu.activeSelf;
+    }
 
     void SetHealthAmount(float _amount)
     {

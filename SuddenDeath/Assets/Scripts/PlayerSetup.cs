@@ -50,7 +50,20 @@ public class PlayerSetup : NetworkBehaviour
 
         GetComponent<Player>().Setup();
 
+        RpcSetUsername(transform.name, transform.name);
+
     }
+
+    [ClientRpc]
+    void RpcSetUsername(string playerID, string username)
+    {
+        Player player = GameManager.GetPlayer(playerID);
+        if (player != null)
+        {
+            Debug.Log("endmeee now plz");
+            player.username = username;
+        }
+    } 
 
     void SetLayerRecursively(GameObject obj, int newLayer)
     {
@@ -66,8 +79,10 @@ public class PlayerSetup : NetworkBehaviour
     public override void OnStartClient()
     {
         base.OnStartClient();
+
         string _netID = GetComponent<NetworkIdentity>().netId.ToString();
         Player _player = GetComponent<Player>();
+
         GameManager.RegisterPlayer(_netID, _player);
     }
 

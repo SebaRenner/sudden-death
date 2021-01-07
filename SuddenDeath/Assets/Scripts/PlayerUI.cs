@@ -10,6 +10,9 @@ public class PlayerUI : MonoBehaviour
     GameObject pauseMenu;
 
     [SerializeField]
+    GameObject scoreboard;
+
+    [SerializeField]
     Text ammoText;
 
     private Player player;
@@ -31,6 +34,15 @@ public class PlayerUI : MonoBehaviour
         {
             TogglePauseMenu();
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            scoreboard.SetActive(true);
+        } else if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            scoreboard.SetActive(false);
+        }
+
     }
 
     public void TogglePauseMenu()

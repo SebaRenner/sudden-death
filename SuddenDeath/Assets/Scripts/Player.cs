@@ -16,6 +16,9 @@ public class Player : NetworkBehaviour
     [SyncVar]
     public string username = "Loading...";
 
+    public int kills;
+    public int deaths;
+
     [SerializeField]
     private int maxHealth = 100;
 
@@ -40,8 +43,6 @@ public class Player : NetworkBehaviour
         {
             wasEnabled[i] = disableOnDeath[i].enabled;
         }
-        // TODO: Hacky solution in my eyes
-        this.username = transform.name;
         SetDefaults();
     }
 
@@ -79,8 +80,11 @@ public class Player : NetworkBehaviour
 
         Player sourcePlayer = GameManager.GetPlayer(_sourceID);
         if (sourcePlayer != null) {
+            sourcePlayer.kills++;
             GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);
         }
+
+        deaths++;
 
         // disable components
         for (int i = 0; i < disableOnDeath.Length; i++)

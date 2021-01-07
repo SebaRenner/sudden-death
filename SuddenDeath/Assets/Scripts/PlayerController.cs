@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class PlayerController : MonoBehaviour
     private float lookSensitivity = 3f;
 
     private PlayerMotor motor;
+    private Animator animator;
 
     public void Start()
     {
         motor = GetComponent<PlayerMotor>();
+        animator = GetComponent<Animator>();
     }
 
     public void Update()
@@ -22,13 +25,17 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        float xMovement = Input.GetAxisRaw("Horizontal"); // -1 and 1
-        float zMovement = Input.GetAxisRaw("Vertical"); // -1 and 1
+        float xMovement = Input.GetAxis("Horizontal"); // -1 and 1
+        float zMovement = Input.GetAxis("Vertical"); // -1 and 1
 
         Vector3 moveHorizontal = transform.right * xMovement;
         Vector3 moveVertical = transform.forward * zMovement;
 
-        Vector3 velocity = (moveHorizontal + moveVertical).normalized * speed;
+        Vector3 velocity = (moveHorizontal + moveVertical) * speed;
+
+        Debug.Log(zMovement);
+        
+        animator.SetFloat("ForwardVelocity", zMovement);
 
         motor.move(velocity);
 

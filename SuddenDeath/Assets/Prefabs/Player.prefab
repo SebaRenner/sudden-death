@@ -169,7 +169,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820224559076113906}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &1820224559076113916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +403,7 @@ MonoBehaviour:
   dontDrawLayerName: DontDraw
   playerGraphics: {fileID: 1820224560405220091}
   playerUIPrefab: {fileID: 4985844496806285307, guid: 0156bbfc7bd8cae4d97d2c08dbc492b9, type: 3}
+  playerUIInstance: {fileID: 0}
 --- !u!114 &-4721912041237072063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,20 +481,6 @@ MonoBehaviour:
   - {fileID: 1820224560405220091}
   - {fileID: 1820224559076113906}
   deathEffect: {fileID: 1564231737977901193, guid: 1765b28e2c52a9e47971dd344a9bc27c, type: 3}
---- !u!64 &2039790789
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820224560174582151}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
 --- !u!95 &461785995
 Animator:
   serializedVersion: 3

@@ -16,12 +16,14 @@ public class WeaponManager : NetworkBehaviour
 
     private PlayerWeapon currentWeapon;
     private WeaponGraphics currentGraphics;
+    private Animator animator;
 
     public bool isReloading = false;
 
     void Start()
     {
         EquipWeapon(primaryWeapon);
+        animator = GetComponent<Animator>();
     }
 
     public PlayerWeapon GetCurrentWeapon()
@@ -65,6 +67,8 @@ public class WeaponManager : NetworkBehaviour
         Debug.Log("Reloading...");
 
         isReloading = true;
+        
+        CmdOnReload();
 
         yield return new WaitForSeconds(currentWeapon.reloadTime);
 
@@ -72,5 +76,16 @@ public class WeaponManager : NetworkBehaviour
 
         isReloading = false;
     }
-  
+
+    [Command]
+    void CmdOnReload()
+    {
+        RpcOnReload();
+    }
+
+    [ClientRpc]
+    void RpcOnReload()
+    {
+        animator.SetTrigger("Reload");
+    }
 }

@@ -456,7 +456,7 @@ MonoBehaviour:
   cam: {fileID: 1820224559076113918}
   mask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 5431
 --- !u!114 &1286683941133733758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 6036902224267881703}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1282,7 +1282,7 @@ GameObject:
   - component: {fileID: 786578510591528054}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

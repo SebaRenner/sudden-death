@@ -119,7 +119,8 @@ public class PlayerShoot : NetworkBehaviour
         {
             if (_hit.collider.tag == PLAYER_TAG)
             {
-                CmdPlayerShot(_hit.collider.name, currentWeapon.damage, transform.name);
+                var playerId = _hit.collider.gameObject.GetComponentInParent<Player>().gameObject.name;
+                CmdPlayerShot(playerId, currentWeapon.damage, transform.name);
             }
 
             CmdOnHit(_hit.point, _hit.normal);

@@ -16,16 +16,24 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Update()
-    {   
-       
-        if (PauseMenu.isOn) return;
+    {
 
-        /*
+        if (PauseMenu.isOn)
+        {
+            if(Cursor.lockState != CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            motor.move(Vector3.zero);
+            motor.rotate(Vector3.zero);
+            motor.rotateCamera(Vector3.zero);
+
+            return;
+        }
         if (Cursor.lockState != CursorLockMode.Locked)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-        */
 
         float xMovement = Input.GetAxisRaw("Horizontal"); // -1 and 1
         float zMovement = Input.GetAxisRaw("Vertical"); // -1 and 1

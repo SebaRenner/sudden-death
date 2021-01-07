@@ -17,6 +17,8 @@ public class PlayerSetup : NetworkBehaviour
 
     [SerializeField]
     GameObject playerUIPrefab;
+    PauseMenu playerUIPauseMenu;
+
     [HideInInspector]
     public GameObject playerUIInstance;
 
@@ -43,8 +45,6 @@ public class PlayerSetup : NetworkBehaviour
                 Debug.Log("No playerui component on playerui prefab");
             }
             ui.SetPlayer(GetComponent<Player>());
-
-
 
         }
 

@@ -4,20 +4,24 @@ using Mirror;
 public class PauseMenu : MonoBehaviour
 {
     public static bool isOn = false;
+    private Player player;
+    private PlayerUI playerUI;
 
     private NetworkManager networkManager;
-
+    
     private void Start()
     {
-        Debug.Log("EndmEEEEEEEEEEEEEEE");
         networkManager = NetworkManager.singleton;
+        playerUI = transform.parent.gameObject.GetComponent<PlayerUI>();
+        player = playerUI.GetPlayer();
+
     }
 
     public void LeaveRoom()
     {
-        //string netId = GetComponent<NetworkIdentity>().netId.ToString();
-        Debug.Log("Hello");
-        networkManager.StopClient();
+        string _playerID = player.name;
+        GameManager.UnRegisterPlayer(_playerID);
+        networkManager.StopHost();
+        Destroy(GameObject.Find("PlayerUI"));
     }
-
 }

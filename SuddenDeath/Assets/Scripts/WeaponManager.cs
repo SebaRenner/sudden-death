@@ -4,7 +4,6 @@ using System.Collections;
 
 public class WeaponManager : NetworkBehaviour
 {
-
     [SerializeField]
     private string weaponLayerName = "Weapon";
 
@@ -18,11 +17,13 @@ public class WeaponManager : NetworkBehaviour
     private WeaponGraphics currentGraphics;
     private Animator animator;
 
+    private GameObject _weaponIns;
+
     public bool isReloading = false;
 
     void Start()
     {
-        EquipWeapon(primaryWeapon);
+       // EquipWeapon(primaryWeapon);
         animator = GetComponent<Animator>();
     }
 
@@ -36,12 +37,11 @@ public class WeaponManager : NetworkBehaviour
         return currentGraphics;
     }
 
-    void EquipWeapon(PlayerWeapon _weapon)
+    public void EquipWeapon(PlayerWeapon _weapon)
     {
         currentWeapon = _weapon;
         SetMaxBullets();
-        GameObject _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.transform);
-        //_weaponIns.transform.SetParent(weaponHolder);
+        _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.transform);
 
         currentGraphics = _weaponIns.GetComponent<WeaponGraphics>();
         if (currentGraphics == null)
@@ -51,7 +51,6 @@ public class WeaponManager : NetworkBehaviour
 
         if (isLocalPlayer)
         {
-            //_weaponIns.layer = LayerMask.NameToLayer(weaponLayerName);
             Util.SetLayerRecursively(_weaponIns, LayerMask.NameToLayer(weaponLayerName));
         }
     }
@@ -69,7 +68,7 @@ public class WeaponManager : NetworkBehaviour
 
         isReloading = true;
         
-        CmdOnReload();
+        RpcOnReload();
 
         yield return new WaitForSeconds(currentWeapon.reloadTime);
 
@@ -86,11 +85,25 @@ public class WeaponManager : NetworkBehaviour
         }
     }
 
+    public void SetNewWeapon(PlayerWeapon _weapon)
+    {
+        Destroy(_weaponIns);
+        EquipWeapon(_weapon);
+    }
+
+    public void SetBaseWeapon()
+    {
+        Destroy(_weaponIns);
+        EquipWeapon(primaryWeapon);
+    }
+
+    /*
     [Command]
     void CmdOnReload()
     {
         RpcOnReload();
     }
+    */
 
     [ClientRpc]
     void RpcOnReload()

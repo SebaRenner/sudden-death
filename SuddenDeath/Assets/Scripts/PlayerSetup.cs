@@ -60,7 +60,6 @@ public class PlayerSetup : NetworkBehaviour
         Player player = GameManager.instance.GetPlayer(playerID);
         if (player != null)
         {
-            Debug.Log("endmeee now plz");
             player.username = username;
         }
     } 

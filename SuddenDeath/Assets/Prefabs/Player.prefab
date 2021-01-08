@@ -754,7 +754,7 @@ MonoBehaviour:
   syncInterval: 0.1
   weaponLayerName: Weapon
   weaponHolder: {fileID: 4131316927399513390}
-  primaryWeapon: {fileID: 6758548931109947183, guid: 1c6a6d60f4542214fa4b54a2ef2ee644, type: 3}
+  primaryWeapon: {fileID: 3102142164341836257, guid: 5a22eed3e8598e14f864a168102c5fad, type: 3}
   isReloading: 0
 --- !u!1 &1820224560405220091
 GameObject:

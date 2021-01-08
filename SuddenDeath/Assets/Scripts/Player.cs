@@ -152,6 +152,7 @@ public class Player : NetworkBehaviour
         currentHealth = maxHealth;
 
         // respawn with max ammo
+        weaponManager.SetBaseWeapon();
         weaponManager.SetMaxBullets();
 
         // enable components

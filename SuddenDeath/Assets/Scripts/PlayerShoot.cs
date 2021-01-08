@@ -111,7 +111,7 @@ public class PlayerShoot : NetworkBehaviour
         }
 
         currentWeapon.bullets--;
-        Debug.Log("Remaining bullets: " + currentWeapon.bullets);
+        //Debug.Log("Remaining bullets: " + currentWeapon.bullets);
 
         // We are shooting, call the OnShoot on the server
         CmdOnShoot();

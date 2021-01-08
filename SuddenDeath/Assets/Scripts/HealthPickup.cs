@@ -8,12 +8,15 @@ public class HealthPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Player player = other.gameObject.GetComponentInParent<Player>();
-        player.AddHealth(amount);
-        Destroy(gameObject);
+        if (player.GetHealthPct() < 1f)
+        {
+            player.AddHealth(amount);
+            Destroy(gameObject);
+        } 
     }
 
     private void Update()
     {
-        transform.rotation.Set(0, 90 * Time.deltaTime, 0, transform.rotation.w);
+        transform.Rotate(Vector3.up * 25f * Time.deltaTime);
     }
 }

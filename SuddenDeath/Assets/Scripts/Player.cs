@@ -22,6 +22,8 @@ public class Player : NetworkBehaviour
     [SerializeField]
     private int maxHealth = 100;
 
+    private WeaponManager weaponManager;
+
     // Annotation SyncVar to synchronize health from server to all clients
     [SyncVar]
     private int currentHealth;
@@ -43,6 +45,8 @@ public class Player : NetworkBehaviour
         {
             wasEnabled[i] = disableOnDeath[i].enabled;
         }
+        weaponManager = transform.GetComponent<WeaponManager>();
+
         SetDefaults();
     }
 
@@ -145,6 +149,9 @@ public class Player : NetworkBehaviour
     {
         isDead = false;
         currentHealth = maxHealth;
+
+        // respawn with max ammo
+        weaponManager.SetMaxBullets();
 
         // enable components
         for (int i = 0; i < disableOnDeath.Length; i++)

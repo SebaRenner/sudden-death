@@ -72,9 +72,17 @@ public class WeaponManager : NetworkBehaviour
 
         yield return new WaitForSeconds(currentWeapon.reloadTime);
 
-        currentWeapon.bullets = currentWeapon.maxBullets;
+        SetMaxBullets();
 
         isReloading = false;
+    }
+
+    public void SetMaxBullets()
+    {
+        if (currentWeapon != null)
+        {
+            currentWeapon.bullets = currentWeapon.maxBullets;
+        }
     }
 
     [Command]

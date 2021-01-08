@@ -12256,7 +12256,7 @@ MonoBehaviour:
   CongestionWindow: 1
   SendWindowSize: 128
   ReceiveWindowSize: 128
-  debugGUI: 1
+  debugGUI: 0
 --- !u!114 &630778411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12278,7 +12278,7 @@ MonoBehaviour:
   onlineScene: 
   transport: {fileID: 630778410}
   networkAddress: localhost
-  maxConnections: 4
+  maxConnections: 20
   disconnectInactiveConnections: 0
   disconnectInactiveTimeout: 60
   authenticator: {fileID: 0}

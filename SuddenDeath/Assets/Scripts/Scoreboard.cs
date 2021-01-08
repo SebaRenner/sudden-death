@@ -10,7 +10,7 @@ public class Scoreboard : MonoBehaviour
 
     void OnEnable()
     {
-        Player[] players = GameManager.GetAllPlayers();
+        Player[] players = GameManager.instance.GetAllPlayers();
 
         foreach (Player player in players)
         {

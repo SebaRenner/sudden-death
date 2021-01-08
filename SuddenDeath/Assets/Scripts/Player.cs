@@ -78,7 +78,7 @@ public class Player : NetworkBehaviour
     {
         isDead = true;
 
-        Player sourcePlayer = GameManager.GetPlayer(_sourceID);
+        Player sourcePlayer = GameManager.instance.GetPlayer(_sourceID);
         if (sourcePlayer != null) {
             sourcePlayer.kills++;
             GameManager.instance.onPlayerKilledCallback.Invoke(username, sourcePlayer.username);

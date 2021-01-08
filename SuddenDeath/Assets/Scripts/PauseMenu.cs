@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     public void LeaveRoom()
     {
         string _playerID = player.name;
-        GameManager.UnRegisterPlayer(_playerID);
+        GameManager.instance.UnRegisterPlayer(_playerID);
         networkManager.StopHost();
         Destroy(GameObject.Find("PlayerUI"));
     }

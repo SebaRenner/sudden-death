@@ -57,7 +57,7 @@ public class PlayerSetup : NetworkBehaviour
     [ClientRpc]
     void RpcSetUsername(string playerID, string username)
     {
-        Player player = GameManager.GetPlayer(playerID);
+        Player player = GameManager.instance.GetPlayer(playerID);
         if (player != null)
         {
             Debug.Log("endmeee now plz");
@@ -83,7 +83,7 @@ public class PlayerSetup : NetworkBehaviour
         string _netID = GetComponent<NetworkIdentity>().netId.ToString();
         Player _player = GetComponent<Player>();
 
-        GameManager.RegisterPlayer(_netID, _player);
+        GameManager.instance.RegisterPlayer(_netID, _player);
     }
 
     void DisableComponents ()
@@ -107,7 +107,7 @@ public class PlayerSetup : NetworkBehaviour
 
         GameManager.instance.SetSceneCameraActive(true);
 
-        GameManager.UnRegisterPlayer(transform.name);
+        GameManager.instance.UnRegisterPlayer(transform.name);
 
     }
 }

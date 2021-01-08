@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
-
         if (PauseMenu.isOn)
         {
             if(Cursor.lockState != CursorLockMode.None)
@@ -30,7 +29,6 @@ public class PlayerController : MonoBehaviour
             motor.move(Vector3.zero);
             motor.rotate(Vector3.zero);
             motor.rotateCamera(Vector3.zero);
-
             return;
         }
         if (Cursor.lockState != CursorLockMode.Locked)

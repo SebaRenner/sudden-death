@@ -15,6 +15,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     Text ammoText;
 
+    [SerializeField]
+    Text playerName;
+
     private Player player;
     private PlayerController controller;
     private WeaponManager weaponManager;
@@ -29,6 +32,7 @@ public class PlayerUI : MonoBehaviour
     {
         SetHealthAmount(player.GetHealthPct());
         SetAmmoAmount(weaponManager.GetCurrentWeapon().bullets);
+        SetPlayerName(player.username);
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -59,6 +63,11 @@ public class PlayerUI : MonoBehaviour
     void SetAmmoAmount(int _amount)
     {
         ammoText.text = _amount.ToString();
+    }
+
+    void SetPlayerName(string _name)
+    {
+        playerName.text = _name;
     }
 
     public void SetPlayer(Player _player)

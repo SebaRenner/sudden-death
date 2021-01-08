@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Mirror;
 using System.Collections;
 
@@ -183,4 +184,15 @@ public class Player : NetworkBehaviour
         return (float)currentHealth / maxHealth;
     }
 
+    public void AddHealth(int amount)
+    {
+        if (currentHealth + amount < maxHealth)
+        {
+            currentHealth += amount;
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
+    }
 }

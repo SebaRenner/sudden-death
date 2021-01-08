@@ -39,8 +39,8 @@ public class WeaponManager : NetworkBehaviour
     void EquipWeapon(PlayerWeapon _weapon)
     {
         currentWeapon = _weapon;
-        GameObject _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.position, weaponHolder.rotation);
-        _weaponIns.transform.SetParent(weaponHolder);
+        GameObject _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.transform);
+        //_weaponIns.transform.SetParent(weaponHolder);
 
         currentGraphics = _weaponIns.GetComponent<WeaponGraphics>();
         if (currentGraphics == null)

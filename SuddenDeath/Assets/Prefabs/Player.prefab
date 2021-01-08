@@ -762,7 +762,7 @@ MonoBehaviour:
     maxBullets: 30
     reloadTime: 1.5
     bullets: 30
-    graphics: {fileID: 7837322780617854855, guid: 5a22eed3e8598e14f864a168102c5fad, type: 3}
+    graphics: {fileID: 3442733015376635988, guid: 1c6a6d60f4542214fa4b54a2ef2ee644, type: 3}
   isReloading: 0
 --- !u!1 &1820224560405220091
 GameObject:

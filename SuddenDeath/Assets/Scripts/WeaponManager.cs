@@ -39,6 +39,7 @@ public class WeaponManager : NetworkBehaviour
     void EquipWeapon(PlayerWeapon _weapon)
     {
         currentWeapon = _weapon;
+        SetMaxBullets();
         GameObject _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.transform);
         //_weaponIns.transform.SetParent(weaponHolder);
 

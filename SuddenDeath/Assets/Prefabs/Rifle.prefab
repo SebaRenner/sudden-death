@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3046876082853673436}
   - component: {fileID: 5379185152080473788}
+  - component: {fileID: 6758548931109947183}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -78,6 +79,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 8220043017734954032}
   hitEffectPrefab: {fileID: 218219799894640799, guid: 16cd3b7589c6faf43a54d7cf48658567, type: 3}
+--- !u!114 &6758548931109947183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442733015376635988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523c7714aa6e043499141362847af9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponName: Rifle
+  damage: 15
+  range: 120
+  fireRate: 0
+  maxBullets: 20
+  reloadTime: 2
+  bullets: 0
+  graphics: {fileID: 3442733015376635988}
 --- !u!1001 &7306295618611577520
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -68,7 +68,7 @@ public class WeaponManager : NetworkBehaviour
 
         isReloading = true;
         
-        RpcOnReload();
+        CmdOnReload();
 
         yield return new WaitForSeconds(currentWeapon.reloadTime);
 
@@ -97,13 +97,12 @@ public class WeaponManager : NetworkBehaviour
         EquipWeapon(primaryWeapon);
     }
 
-    /*
+    
     [Command]
     void CmdOnReload()
     {
         RpcOnReload();
     }
-    */
 
     [ClientRpc]
     void RpcOnReload()

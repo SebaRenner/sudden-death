@@ -31,6 +31,8 @@ namespace Mirror
         /// </summary>
         public int offsetY;
 
+        private string username;
+
         void Awake()
         {
             manager = GetComponent<NetworkManager>();
@@ -102,6 +104,12 @@ namespace Mirror
                 {
                     if (GUILayout.Button("Server Only")) manager.StartServer();
                 }
+
+                // Username 
+                GUILayout.BeginHorizontal();
+                GUILayout.Label("Username:");
+                username = GUILayout.TextField(username);
+                GUILayout.EndHorizontal();
             }
             else
             {
@@ -154,5 +162,11 @@ namespace Mirror
                 }
             }
         }
+
+        public string GetUsername()
+        {
+            return username;
+        }
+
     }
 }

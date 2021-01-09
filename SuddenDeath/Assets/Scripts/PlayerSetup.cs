@@ -22,6 +22,8 @@ public class PlayerSetup : NetworkBehaviour
     [HideInInspector]
     public GameObject playerUIInstance;
 
+    private NetworkManager networkManager;
+
     public void Start()
     {
         if (!isLocalPlayer)
@@ -48,10 +50,19 @@ public class PlayerSetup : NetworkBehaviour
 
         }
 
+        networkManager = NetworkManager.singleton;
+        string username = networkManager.GetComponent<NetworkManagerHUD>().GetUsername();
+
         GetComponent<Player>().Setup();
 
-        RpcSetUsername(transform.name, transform.name);
+        CmdSetUsername(transform.name, username);
 
+    }
+
+    [Command]
+    void CmdSetUsername(string playerID, string username)
+    {
+        RpcSetUsername(playerID, username);
     }
 
     [ClientRpc]

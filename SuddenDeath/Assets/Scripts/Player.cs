@@ -58,7 +58,7 @@ public class Player : NetworkBehaviour
         
         if (Input.GetKeyDown(KeyCode.K))
         {
-            RpcTakeDamage(100, "its e me ");
+            RpcTakeDamage(50, "its e me ");
         }
         
     }
@@ -70,7 +70,7 @@ public class Player : NetworkBehaviour
     {
         if (isDead) return;
         currentHealth -= _amount;
-        Debug.Log(transform.name + " new has " + currentHealth + " health.");
+        //Debug.Log(transform.name + " new has " + currentHealth + " health.");
 
         if (currentHealth <= 0)
         {

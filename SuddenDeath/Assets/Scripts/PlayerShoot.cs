@@ -53,7 +53,6 @@ public class PlayerShoot : NetworkBehaviour
                 Shoot();
                 if (currentWeapon.weaponName == "Sniper")
                 {
-                    Debug.Log("reeeeeeeeeeeeeeee");
                     StartCoroutine(SniperCooldown());
                 }
             }
@@ -69,6 +68,11 @@ public class PlayerShoot : NetworkBehaviour
         }
 
       
+    }
+
+    public void RemoteCancelInvoke()
+    {
+        CancelInvoke("Shoot");
     }
 
     private IEnumerator SniperCooldown()

@@ -127,6 +127,8 @@ public class Player : NetworkBehaviour
             }
         }
 
+        GetComponent<PlayerShoot>().RemoteCancelInvoke();
+
         // Call respawn method
         StartCoroutine(Respawn());
 

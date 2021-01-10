@@ -67,7 +67,9 @@ public class WeaponManager : NetworkBehaviour
         Debug.Log("Reloading...");
 
         isReloading = true;
-        
+
+        GetComponent<PlayerShoot>().RemoteCancelInvoke();
+
         CmdOnReload();
 
         yield return new WaitForSeconds(currentWeapon.reloadTime);

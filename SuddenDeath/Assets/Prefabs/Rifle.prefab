@@ -93,11 +93,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Rifle
   damage: 15
-  range: 120
+  range: 21
   fireRate: 0
   maxBullets: 20
   reloadTime: 2
-  bullets: 0
+  bullets: 20
   graphics: {fileID: 3442733015376635988}
 --- !u!1001 &7306295618611577520
 PrefabInstance:

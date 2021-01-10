@@ -145,11 +145,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Sci-Fi Automatic
   damage: 5
-  range: 100
+  range: 15
   fireRate: 10
   maxBullets: 30
   reloadTime: 1.5
-  bullets: 0
+  bullets: 30
   graphics: {fileID: 7837322780617854855}
 --- !u!1001 &8137168045562854090
 PrefabInstance:

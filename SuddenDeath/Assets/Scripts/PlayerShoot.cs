@@ -132,11 +132,7 @@ public class PlayerShoot : NetworkBehaviour
     [Command]
     void CmdPlayerShot(string _playerID, int _damage, string _sourceID)
     {
-       // Debug.Log(_playerID + " has been shot.");
-
         Player _player = GameManager.instance.GetPlayer(_playerID);
         _player.RpcTakeDamage(_damage, _sourceID);
-
     }
-
 }

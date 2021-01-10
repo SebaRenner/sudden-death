@@ -110,7 +110,10 @@ public class WeaponManager : NetworkBehaviour
         if (currentWeapon.weaponName == "Rifle")
         {
             animator.SetTrigger("RifleReload");
-        } else
+        } else if (currentWeapon.weaponName == "Sniper")
+        {
+            animator.SetTrigger("SniperReload");
+        } else 
         {
             animator.SetTrigger("Reload");
         }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Mirror;
+using System.Collections;
 
 [RequireComponent (typeof(WeaponManager))]
 public class PlayerShoot : NetworkBehaviour
@@ -14,6 +15,8 @@ public class PlayerShoot : NetworkBehaviour
 
     private PlayerWeapon currentWeapon;
     private WeaponManager weaponManager;
+
+    private bool isOnCooldown = false;
 
     void Start()
     {
@@ -46,7 +49,13 @@ public class PlayerShoot : NetworkBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
+                if (isOnCooldown) return;
                 Shoot();
+                if (currentWeapon.weaponName == "Sniper")
+                {
+                    Debug.Log("reeeeeeeeeeeeeeee");
+                    StartCoroutine(SniperCooldown());
+                }
             }
         } else
         {
@@ -62,7 +71,13 @@ public class PlayerShoot : NetworkBehaviour
       
     }
 
-
+    private IEnumerator SniperCooldown()
+    {
+        isOnCooldown = true;
+        yield return new WaitForSeconds(2f);
+        isOnCooldown = false;
+    }
+    
     // is called on the server when a player shoots
     [Command]
     void CmdOnShoot()

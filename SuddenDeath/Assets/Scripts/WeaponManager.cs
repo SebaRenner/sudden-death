@@ -107,6 +107,12 @@ public class WeaponManager : NetworkBehaviour
     [ClientRpc]
     void RpcOnReload()
     {
-        animator.SetTrigger("Reload");
+        if (currentWeapon.weaponName == "Rifle")
+        {
+            animator.SetTrigger("RifleReload");
+        } else
+        {
+            animator.SetTrigger("Reload");
+        }
     }
 }

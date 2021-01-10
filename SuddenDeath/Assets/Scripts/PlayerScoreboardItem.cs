@@ -18,7 +18,6 @@ public class PlayerScoreboardItem : MonoBehaviour
         usernameText.text = username;
         killsText.text = "Kills: " + kills;
         deathsText.text = "Deaths: " + deaths;
-
     }
 
 

@@ -23,7 +23,6 @@ public class WeaponManager : NetworkBehaviour
 
     void Start()
     {
-       // EquipWeapon(primaryWeapon);
         animator = GetComponent<Animator>();
     }
 
@@ -64,8 +63,6 @@ public class WeaponManager : NetworkBehaviour
 
     private IEnumerator Reload_Coroutine()
     {
-        Debug.Log("Reloading...");
-
         isReloading = true;
 
         GetComponent<PlayerShoot>().RemoteCancelInvoke();

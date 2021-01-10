@@ -15,10 +15,4 @@ public class PlayerWeapon : MonoBehaviour
 
     public GameObject graphics;
 
-    /*
-    public PlayerWeapon()
-    {
-        bullets = maxBullets;
-    }
-    */
 }

@@ -14,7 +14,6 @@ public class PauseMenu : MonoBehaviour
         networkManager = NetworkManager.singleton;
         playerUI = transform.parent.gameObject.GetComponent<PlayerUI>();
         player = playerUI.GetPlayer();
-
     }
 
     public void LeaveRoom()

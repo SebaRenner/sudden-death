@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Mirror;
 using System.Collections;
 
@@ -54,15 +53,7 @@ public class Player : NetworkBehaviour
     void Update()
     {
         if (!isLocalPlayer) return;
-
-        
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            RpcTakeDamage(50, "its e me ");
-        }
-        
     }
-
 
     // Annotation to send update to all clients conncected to the server
     [ClientRpc]
@@ -114,8 +105,6 @@ public class Player : NetworkBehaviour
         GameObject _gfxIns = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(_gfxIns, 3f);
 
-        Debug.Log(transform.name + " is dead!");
-
         // switch camera
         if (isLocalPlayer)
         {
@@ -141,12 +130,7 @@ public class Player : NetworkBehaviour
         Transform _spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = _spawnPoint.position;
         transform.rotation = _spawnPoint.rotation;
-        
-
-        Debug.Log(transform.name + " respawned");
-
     }
-
 
     public void SetDefaults()
     {

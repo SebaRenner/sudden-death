@@ -17,7 +17,6 @@ public class PlayerSetup : NetworkBehaviour
 
     [SerializeField]
     GameObject playerUIPrefab;
-    PauseMenu playerUIPauseMenu;
 
     [HideInInspector]
     public GameObject playerUIInstance;
@@ -44,7 +43,7 @@ public class PlayerSetup : NetworkBehaviour
             PlayerUI ui = playerUIInstance.GetComponent<PlayerUI>();
             if (ui == null)
             {
-                Debug.Log("No playerui component on playerui prefab");
+                Debug.LogError("No playerui component on playerui prefab");
             }
             ui.SetPlayer(GetComponent<Player>());
 
@@ -85,7 +84,6 @@ public class PlayerSetup : NetworkBehaviour
         }
     }
 
-
     public override void OnStartClient()
     {
         base.OnStartClient();
@@ -112,12 +110,9 @@ public class PlayerSetup : NetworkBehaviour
 
     public void onDisable()
     {
-
         Destroy(playerUIInstance);
 
         GameManager.instance.SetSceneCameraActive(true);
-
         GameManager.instance.UnRegisterPlayer(transform.name);
-
     }
 }
